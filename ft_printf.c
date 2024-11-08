@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 20:51:37 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/08 20:53:56 by nyoong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h" 
 
 static int	handle_format_specifiers(char specifier, va_list args)
@@ -20,7 +32,7 @@ static int	handle_format_specifiers(char specifier, va_list args)
 	else if (specifier == 'X')
 		printed_chars += handle_hex(args, 1);
 	else if (specifier == '%')
-		printed_chars += handle_percent();
+		printed_chars += handle_percent(1);
 	return (printed_chars);
 }
 

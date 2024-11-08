@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nyoong <nyoong@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 20:51:42 by nyoong            #+#    #+#             */
+/*   Updated: 2024/11/08 20:54:04 by nyoong           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -17,7 +29,7 @@ int		handle_pointer(va_list args);
 int		handle_integer(va_list args);
 int		handle_unsigned(va_list args);
 int		handle_hex(va_list args, int uppercase);
-int		handle_percent();
+int		handle_percent(int n);
 int		ft_printf(const char *format, ...);
 
 #endif
