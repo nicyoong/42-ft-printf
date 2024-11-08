@@ -28,11 +28,19 @@ int	handle_string(va_list args)
 
 int	handle_pointer(va_list args)
 {
-	void *ptr_val;
+	void	*ptr_val;
+	int		count;
 
+	count = 0;
 	ptr_val = va_arg(args, void *);
-	ft_putptr_fd(ptr_val, 1);
-	return (2 + sizeof(void *) * 2);
+	if (ptr_val == NULL) {
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
+	ft_putstr_fd("0x", 1);
+	count += 2;
+	count += ft_putnbr_hex_fd((uintptr_t)ptr_val, 1, 0);
+	return (count);
 }
 
 int handle_percent()

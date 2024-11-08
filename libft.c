@@ -60,16 +60,20 @@ void ft_putnbr_unsigned_fd(unsigned int n, int fd) {
     ft_putchar_fd(n % 10 + '0', fd);
 }
 
-void ft_putnbr_hex_fd(unsigned int n, int fd, int uppercase) {
-    const char *hex_digits = uppercase ? "0123456789ABCDEF" : "0123456789abcdef";
-    if (n >= 16) {
-        ft_putnbr_hex_fd(n / 16, fd, uppercase);
-    }
-    ft_putchar_fd(hex_digits[n % 16], fd);
+int	ft_putnbr_hex_fd(uintptr_t num, int fd, int is_upper)
+{
+	const char	*hex_digits;
+	int			count;
+
+	if (is_upper)
+		hex_digits = "0123456789ABCDEF";
+	else
+		hex_digits = "0123456789abcdef";
+	count = 0;
+	if (num >= 16)
+		count += ft_putnbr_hex_fd(num / 16, fd, is_upper);
+	ft_putchar_fd(hex_digits[num % 16], fd);
+	count++;
+	return (count);
 }
 
-void ft_putptr_fd(void *ptr, int fd) {
-    uintptr_t ptr_val = (uintptr_t)ptr;
-    ft_putstr_fd("0x", fd);
-    ft_putnbr_hex_fd(ptr_val, fd, 0);
-}

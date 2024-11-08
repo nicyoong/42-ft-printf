@@ -10,7 +10,6 @@ int main()
     printf("printf result: ");
     i = printf("%c", 'A');
     printf("\n");
-    printf("\n");
     printf("printf result: %d\n", i);
     printf("ft_printf result: ");
     j = ft_printf("%c", 'A');

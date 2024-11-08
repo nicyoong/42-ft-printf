@@ -3,7 +3,9 @@ int	num_len(int num)
 	int	len;
 
 	len = 0;
-	if (num <= 0)
+	if (num == 0)
+		return (1);
+	if (num < 0)
 	{
 		len++;
 		num = -num;
