@@ -1,4 +1,6 @@
 #include <unistd.h>
+#include <stddef.h>
+#include <stdint.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -67,7 +69,7 @@ void ft_putnbr_hex_fd(unsigned int n, int fd, int uppercase) {
 }
 
 void ft_putptr_fd(void *ptr, int fd) {
-    unsigned long long ptr_val = (unsigned long long)ptr;
-    ft_putstr_fd("0x", fd);  // "0x" prefix for pointers
-    ft_putnbr_hex_fd(ptr_val, fd, 0);  // Print the pointer in lowercase hex
+    uintptr_t ptr_val = (uintptr_t)ptr;
+    ft_putstr_fd("0x", fd);
+    ft_putnbr_hex_fd(ptr_val, fd, 0);
 }
