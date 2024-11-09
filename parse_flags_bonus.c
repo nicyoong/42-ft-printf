@@ -1,6 +1,6 @@
 #include "ft_printf_bonus.h"
 
-static int	parse_number(const char **format)
+int	parse_number(const char **format)
 {
 	int num = 0;
 	while (ft_isdigit(**format))
@@ -11,7 +11,7 @@ static int	parse_number(const char **format)
 	return (num);
 }
 
-static t_flags parse_flags(const char **format)
+t_flags parse_flags(const char **format)
 {
 	t_flags flags = {0, 0, -1, 0, 0, 0, 0, -1};
 	while (**format == '-' || **format == '0' || **format == '#' || 
