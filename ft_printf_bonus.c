@@ -6,7 +6,7 @@ static int	handle_format_specifiers(const char **format, va_list args)
     t_flags flags;
     char    specifier;
 
-    flags = parse_flags(format);
+    flags = parse_flags(format, args);
     specifier = **format;
 	printed_chars = 0;
 	if (specifier == 'c')
@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 		if (*ptr == '%' && *(ptr + 1))
 		{
 			ptr++;
-			printed_chars += handle_format_specifiers(*ptr, args);
+			printed_chars += handle_format_specifiers(&ptr, args);
 		}
 		else
 		{

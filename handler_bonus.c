@@ -83,7 +83,9 @@ int handle_pointer(va_list args, t_flags flags)
             ft_putchar_fd(' ', 1);
 
     return (flags.width > len) ? flags.width : len;
-}int handle_percent(t_flags flags)
+}
+
+int handle_percent(t_flags flags)
 {
     int padding = flags.width - 1;
 

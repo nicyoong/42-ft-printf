@@ -20,6 +20,7 @@ typedef struct s_flags
 
 int		ft_putnbr_hex_fd(uintptr_t n, int fd, int uppercase);
 void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
+void	ft_putnstr_fd(const char *str, int n, int fd);
 int		num_len(int num);
 int		num_len_unsigned(unsigned int num);
 int		num_len_hex(unsigned int num);
@@ -31,7 +32,7 @@ int		handle_unsigned(va_list args, t_flags flags);
 int		handle_hex(va_list args, t_flags flags, int uppercase);
 int		handle_percent(t_flags flags);
 int	parse_number(const char **format);
-t_flags parse_flags(const char **format);
+t_flags parse_flags(const char **format, va_list args);
 
 int		ft_printf(const char *format, ...);
 

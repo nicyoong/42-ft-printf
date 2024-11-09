@@ -73,3 +73,10 @@ int	num_len_hex(unsigned int num)
 	}
 	return (len);
 }
+
+void ft_putnstr_fd(const char *str, int n, int fd)
+{
+    if (!str)
+        return;
+    write(fd, str, n);
+}
