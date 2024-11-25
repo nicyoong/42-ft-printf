@@ -12,15 +12,8 @@ handler.c \
 handler2.c \
 utils.c
 
-# Source files for bonus part
-BONUS_SRCS = \
-file1_bonus.c \
-file2_bonus.c \
-file3_bonus.c
-
 # Object files
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # libft directory
 LIBFT_DIR = ./libft
@@ -40,16 +33,6 @@ $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS) *.o  # Combine libft objects with ft_printf objects
 	@rm -f *.o  # Clean up extracted libft object files
 
-# Bonus rule
-bonus: $(OBJS) $(BONUS_OBJS)
-	@$(MAKE) -C $(LIBFT_DIR)
-	@cp $(LIBFT) .
-	@ar x $(LIBFT)  # Extract object files from libft.a
-	@echo "Creating $(NAME) with object files:"
-	@echo "$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) *.o"  # Echo the ar command
-	@$(AR) $(NAME) $(OBJS) $(BONUS_OBJS) *.o
-	@rm -f *.o
-
 # Compile .c files into .o files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -67,4 +50,4 @@ fclean: clean
 # Rebuild everything from scratch
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
